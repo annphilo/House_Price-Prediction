@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>House Price Prediction</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h1{
+            text-align: center;
+            color: #333;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        input{
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #555;
+        }
+
+        .result{
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            color: green;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>House Price Prediction</h1>
+
+        <form action="/predict" method="POST">
+
+            <label>Overall Quality</label>
+            <input type="number" name="overallqual" required>
+
+            <label>Ground Living Area (sq ft)</label>
+            <input type="number" name="grlivarea" required>
+
+            <label>Garage Cars</label>
+            <input type="number" name="garagecars" required>
+
+            <label>Total Basement Area</label>
+            <input type="number" name="totalbsmtsf" required>
+
+            <label>Full Bathrooms</label>
+            <input type="number" name="fullbath" required>
+
+            <label>Year Built</label>
+            <input type="number" name="yearbuilt" required>
+
+            <button type="submit">
+                Predict House Price
+            </button>
+
+        </form>
+
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+
+    </div>
+
+</body>
+
+</html>
